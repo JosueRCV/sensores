@@ -8,7 +8,7 @@ ir = LineSensor(18)
 
 def encendido():
 	print(ir.value)
-	datet = datetime.datetime.now().replace(tzinfo=datetime.timezone(datetime.timedelta(seconds=-21600))).isoformat()
+	datet = datetime.datetime.now().isoformat()
 	archjso = '''"estado": "1", "sensor": "Infrarrojo", "fecha": '''+'"'+ datet +'"'
 	print(archjso)
 	archjson = "{"+archjso+"}"
@@ -19,7 +19,7 @@ def encendido():
 
 def apagado():
 	print(ir.value)
-	datet = datetime.datetime.now().replace(tzinfo=datetime.timezone(datetime.timedelta(seconds=-21600))).isoformat()
+	datet = datetime.datetime.now().isoformat()
 	archjso = '''"estado": "0", "sensor": "Infrarrojo", "fecha": '''+'"'+ str(datet) +'"'
 	print(archjso)
 	archjson = "{"+archjso+"}"
