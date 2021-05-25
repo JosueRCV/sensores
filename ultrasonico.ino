@@ -29,7 +29,7 @@ char msg[50];
 int value = 0;
 
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, "pool.ntp.org");
+NTPClient timeClient(ntpUDP, "pool.ntp.org", -18000);
 unsigned long epochTime;
 
 unsigned long getTime() {
@@ -74,9 +74,7 @@ void loop() {
   String sensor = "Ultrasonico";
   time_t is8 = getTime();
   setTime(is8);
-  Timezone myTZ;
-  myTZ.setLocation(F("America/Mexico_City"));
-  String iso8 = myTZ.dateTime(ISO8601);
+  String iso8 = dateTime(ISO8601);
   postinterruptor(estado, sensor, iso8);
   delay(10000);
 }
